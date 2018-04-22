@@ -1,10 +1,10 @@
 cask 'crypter' do
-  version '2.0.0'
-  sha256 '51dea8a15d9d0cc3d5c32e9e175970b2208f5d1c1aa320819a370ae25eb34542'
+  version '3.1.0'
+  sha256 '2f2f62f23beb03dd391ad3775ab85804c34038a4483877a4805a711f58beacfb'
 
   url "https://github.com/HR/Crypter/releases/download/v#{version}/Crypter-#{version}.dmg"
   appcast 'https://github.com/HR/Crypter/releases.atom',
-          checkpoint: 'd0dbab1db97560147c7e706bd4dbadd8095d33937e8749d67f17bf13489f42ef'
+          checkpoint: '3d2158d9e671541e5fd7ce2c8e32e7c883aa9b9221681c16d4b753caef6b1fe5'
   name 'Crypter'
   homepage 'https://github.com/HR/Crypter'
 

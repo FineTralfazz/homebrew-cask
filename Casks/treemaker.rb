@@ -4,7 +4,7 @@ cask 'treemaker' do
 
   url 'http://www.langorigami.com/files/articles/TreeMaker.dmg'
   name 'TreeMaker'
-  homepage 'https://www.langorigami.com/article/treemaker'
+  homepage 'http://www.langorigami.com/article/treemaker'
 
   app "TreeMaker #{version.major}.app"
 end

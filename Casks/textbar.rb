@@ -1,12 +1,12 @@
 cask 'textbar' do
-  version '2.0.431'
-  sha256 'c10b845af90a31ac63ea91e82b959a88ddcd564c6068ab4be66ae514ba32bb7f'
+  version '3.2.20'
+  sha256 '392406b1cd5fd3dda70a6967bb5136d933da36e4c4d946fa012c4239fcb80616'
 
   url "http://www.richsomerfield.com/apps/textbar/TextBar.app-#{version}.zip"
   appcast 'http://www.richsomerfield.com/apps/textbar/sparkle_textbar.xml',
-          checkpoint: 'd50ba1b3a2c8e214d7d9aab18a96e51dfd0dd226d77cd4f08ee981d741619241'
+          checkpoint: 'a2caaec0620c0effdf29c3a71d552b23d575d8417b846eab48f9575670691d2b'
   name 'TextBar'
-  homepage 'http://www.richsomerfield.com/apps/'
+  homepage 'http://richsomerfield.com/apps/'
 
   depends_on macos: '>= :mountain_lion'
 

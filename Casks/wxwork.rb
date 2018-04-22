@@ -1,10 +1,10 @@
 cask 'wxwork' do
-  version '1.3.0.2300'
-  sha256 '6a7415f0d60e2f898a42b97d814e83f5538df306f92f5dcaf672e8f3d6de0503'
+  version '2.4.16.2041'
+  sha256 '8857bed2a099f05fa7192938e5644dce35277d5f86ac11d626cb85ef01c873dd'
 
-  url "http://dldir1.qq.com/foxmail/work_weixin/WXWork_#{version}.dmg"
+  url "https://dldir1.qq.com/foxmail/work_weixin/WXWork_#{version}.dmg"
   name 'Wechat Enterprise Version'
-  name '企业微信'
+  name 'WeChat Work'
   homepage 'https://work.weixin.qq.com/'
 
   app '企业微信.app'

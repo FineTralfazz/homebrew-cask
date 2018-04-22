@@ -1,11 +1,11 @@
 cask 'displaycal' do
-  version '3.2.3.0'
-  sha256 '5ea0515e61bc426faf6e77894d500cbdec9fd978b2791e1195b31d33e45e5a9a'
+  version '3.5.2.0'
+  sha256 '290c0b589e82742a33fc09e8ddd493d991b1ec000da70e750f98090b78512311'
 
   # sourceforge.net/dispcalgui was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/dispcalgui/release/#{version}/DisplayCAL-#{version}.dmg"
   appcast 'https://sourceforge.net/projects/dispcalgui/rss?path=/release',
-          checkpoint: 'bcfc676d1d575745911bd2ef9ed0624de7ed3d8ebc44ae8bec3191905431edcc'
+          checkpoint: '752489c2eb5cf12e1d326c6f0bad2fd27686f2d0eacfdb1b752277ac360699c6'
   name 'DisplayCAL'
   homepage 'https://displaycal.net/'
 
@@ -18,9 +18,9 @@ cask 'displaycal' do
     FileUtils.mv(staged_path.children, staged_path.join('DisplayCAL').tap(&:mkpath))
   end
 
-  zap delete: [
-                '~/Library/Application Support/dispcalGUI',
-                '~/Library/Logs/dispcalGUI',
-                '~/Library/Preferences/dispcalGUI',
-              ]
+  zap trash: [
+               '~/Library/Application Support/dispcalGUI',
+               '~/Library/Logs/dispcalGUI',
+               '~/Library/Preferences/dispcalGUI',
+             ]
 end

@@ -1,11 +1,11 @@
 cask 'hazel' do
-  version '4.0.8'
-  sha256 '33ecd5c2d23574426e109662d65e794991ad79d10f80fa285631460b2bca3006'
+  version '4.2.4'
+  sha256 '708f798a8815de0f212ee0f0581a5a181ae64d6324683ee1e4aeb8ae62bc84c5'
 
   # s3.amazonaws.com/Noodlesoft was verified as official when first introduced to the cask
   url "https://s3.amazonaws.com/Noodlesoft/Hazel-#{version}.dmg"
   appcast 'https://www.noodlesoft.com/Products/Hazel/generate-appcast.php',
-          checkpoint: '3bf9cd2ba6f062fc43fa02fc9a155b9bc653c4e3373f6a61e2acc58d5fbd6624'
+          checkpoint: '90975522f609d033194e6e03f9f5129826417c1fbd00e1f4c193e96e37fecca6'
   name 'Hazel'
   homepage 'https://www.noodlesoft.com/'
 
@@ -13,9 +13,9 @@ cask 'hazel' do
 
   uninstall quit: 'com.noodlesoft.HazelHelper'
 
-  zap delete: [
-                '~/Library/Application Support/Hazel',
-                '~/Library/Preferences/com.noodlesoft.Hazel.plist',
-                '~/Library/Preferences/com.noodlesoft.HazelHelper.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Hazel',
+               '~/Library/Preferences/com.noodlesoft.Hazel.plist',
+               '~/Library/Preferences/com.noodlesoft.HazelHelper.plist',
+             ]
 end

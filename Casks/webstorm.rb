@@ -1,26 +1,27 @@
 cask 'webstorm' do
-  version '2016.3.2'
-  sha256 'dff270f0293685660bc3beb13765e4d9b840b92a06b9aa02414282bda4853b41'
+  version '2018.1.1,181.4445.68'
+  sha256 'e54d64910e56e3153b096436cee050677d445b4e828f74810bb75e32078b0a06'
 
-  url "https://download.jetbrains.com/webstorm/WebStorm-#{version}.dmg"
+  url "https://download.jetbrains.com/webstorm/WebStorm-#{version.before_comma}.dmg"
   appcast 'https://data.services.jetbrains.com/products/releases?code=WS&latest=true&type=release',
-          checkpoint: '8b57d4fdf9a6c8233cc202a582fd5ff01185a5c307b41d2844c85becac0aced8'
+          checkpoint: '23485fa49666a771b28ce6f1fcb987259abfd4e632d4b24883fe10cc02df4c8c'
   name 'WebStorm'
   homepage 'https://www.jetbrains.com/webstorm/'
 
   auto_updates true
-  conflicts_with cask: 'webstorm-eap'
 
   app 'WebStorm.app'
 
-  uninstall delete: '/usr/local/bin/wstorm'
+  uninstall_postflight do
+    ENV['PATH'].split(File::PATH_SEPARATOR).map { |path| File.join(path, 'wstorm') }.each { |path| File.delete(path) if File.exist?(path) && File.readlines(path).grep(%r{# see com.intellij.idea.SocketLock for the server side of this interface}).any? }
+  end
 
-  zap delete: [
-                "~/Library/Application Support/WebStorm#{version.major_minor}",
-                "~/Library/Caches/WebStorm#{version.major_minor}",
-                "~/Library/Logs/WebStorm#{version.major_minor}",
-                "~/Library/Preferences/WebStorm#{version.major_minor}",
-                '~/Library/Preferences/jetbrains.webstorm.aaac0500.plist',
-                '~/Library/Saved Application State/com.jetbrains.WebStorm.savedState',
-              ]
+  zap trash: [
+               "~/Library/Application Support/WebStorm#{version.major_minor}",
+               "~/Library/Caches/WebStorm#{version.major_minor}",
+               "~/Library/Logs/WebStorm#{version.major_minor}",
+               "~/Library/Preferences/WebStorm#{version.major_minor}",
+               '~/Library/Preferences/jetbrains.webstorm.aaac0500.plist',
+               '~/Library/Saved Application State/com.jetbrains.WebStorm.savedState',
+             ]
 end

@@ -2,7 +2,7 @@ cask 'codelite' do
   version :latest
   sha256 :no_check
 
-  url 'http://downloads.codelite.org/downloads.php?osx'
+  url 'https://downloads.codelite.org/downloads.php?osx'
   name 'CodeLite'
   homepage 'https://codelite.org/'
 
@@ -10,8 +10,8 @@ cask 'codelite' do
 
   app 'codelite.app'
 
-  zap delete: [
-                '~/Library/Application Support/codelite',
-                '~/Library/Preferences/codelite.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/codelite',
+               '~/Library/Preferences/codelite.plist',
+             ]
 end

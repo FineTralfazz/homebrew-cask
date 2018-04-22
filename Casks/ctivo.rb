@@ -1,12 +1,14 @@
 cask 'ctivo' do
-  version '2.5.0'
-  sha256 '34bb75805c558d150005364a2befb393fa84a014e710358dea23a08396b464d3'
+  version '3.1.2'
+  sha256 '707ae733121c295bb404a1bb2c81e3f4ac4d5e2dbe8b9fd3e2d685872d1d3047'
 
   url "https://github.com/dscottbuch/cTiVo/releases/download/#{version}/cTiVo.zip"
   appcast 'https://github.com/dscottbuch/cTiVo/releases.atom',
-          checkpoint: 'ef9494b415aa0b8468866906e2a36eca9621cdb61e41f03ca5f642d7a2ef15a1'
+          checkpoint: 'c364ab3ba067eadbe7d6eb7d1ba0c89488e9716c6684e94e5984c171e8907f82'
   name 'cTiVo'
   homepage 'https://github.com/dscottbuch/cTiVo'
+
+  depends_on macos: '>= :mavericks'
 
   app 'cTiVo.app'
 end

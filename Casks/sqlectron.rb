@@ -1,11 +1,11 @@
 cask 'sqlectron' do
-  version '1.19.0'
-  sha256 'b998a9ce1df9d47136b57e240330a65b037d303459f127661956b694c80c117f'
+  version '1.29.0'
+  sha256 'e00695e5ba1f9b881ddd9b6da42086aaf05f5a91bcd51481dea714d43ac738b6'
 
   # github.com/sqlectron/sqlectron-gui was verified as official when first introduced to the cask
   url "https://github.com/sqlectron/sqlectron-gui/releases/download/v#{version}/Sqlectron-#{version}-mac.zip"
   appcast 'https://github.com/sqlectron/sqlectron-gui/releases.atom',
-          checkpoint: '26f989f099951efb6207c3c7fda4ec2de1e7aa2d7e9c24f8c031f59db2d86692'
+          checkpoint: '7f85aa677f1439576f06889d4042a0d2665cf0b665c25ab52b9025dd98241015'
   name 'Sqlectron'
   homepage 'https://sqlectron.github.io/'
 
@@ -13,12 +13,8 @@ cask 'sqlectron' do
 
   app 'Sqlectron.app'
 
-  postflight do
-    suppress_move_to_applications
-  end
-
-  zap delete: [
-                '~/.sqlectron.json',
-                '~/Library/Application Support/Sqlectron',
-              ]
+  zap trash: [
+               '~/.sqlectron.json',
+               '~/Library/Application Support/Sqlectron',
+             ]
 end

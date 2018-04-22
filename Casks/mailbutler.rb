@@ -1,11 +1,11 @@
 cask 'mailbutler' do
-  version '6720'
-  sha256 '149f213d43f0810911b9e8a33cabbe9dce117f99e450c8200b030b0f5fb9aa8b'
+  version '2.0.4-9086'
+  sha256 'b6d6ece72ceb49638e9bd36cc370b2b22ad5dfd50d27de25a70bcf094f3a1648'
 
-  # mailbutler-io.s3.amazonaws.com was verified as official when first introduced to the cask
-  url "https://mailbutler-io.s3.amazonaws.com/files/MailButler_#{version}.zip"
-  appcast 'https://www.feingeist.io/fg-library/appcast.php?appName=MailButler',
-          checkpoint: '7a6b9b12c076d5e07fd26ce67417be49f0b7ef8dad2f8f60991dd41e1086ff6d'
+  # mailbutler-data.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "https://mailbutler-data.s3.amazonaws.com/downloads/Mailbutler_#{version}.zip"
+  appcast "https://www.mailbutler.io/appcast#{version.major}.php",
+          checkpoint: 'a5c5085d09e66f9ee23f6ea56f27248b7b063a2acf82175f9702972ec377e411'
   name 'MailButler'
   homepage 'https://www.mailbutler.io/'
 

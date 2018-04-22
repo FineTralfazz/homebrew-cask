@@ -1,6 +1,6 @@
 cask 'hbuilder' do
-  version '7.6.0'
-  sha256 '1f170037d3261b1b227c519e3f79b3de8a8b9b2066c2b269d566bacc4a4ace1c'
+  version '9.0.2'
+  sha256 '44dd208cd27b228c7ce12afa28e749be70d0087c389431cf8638c372ecaff6d5'
 
   # download.dcloud.net.cn was verified as official when first introduced to the cask
   url "http://download.dcloud.net.cn/HBuilder.#{version}.macosx_64.dmg"

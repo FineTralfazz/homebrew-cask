@@ -1,12 +1,24 @@
 cask 'tableau' do
-  version '10.1.3'
-  sha256 'c1d049d1271c20fd9a66140e27ce24da3efa4d5a0a8034851e8be13fae2516cd'
+  version '10.5.2'
+  sha256 '510811918d00c5d9f654e136fe9d6154fc621c2abcad019a073455e6213489ff'
 
   url "https://downloads.tableau.com/tssoftware/TableauDesktop-#{version.dots_to_hyphens}.dmg"
-  name 'Tableau'
+  name 'Tableau Desktop'
   homepage 'https://public.tableau.com/s/'
 
   depends_on macos: '>= :yosemite'
 
-  app 'Tableau.app'
+  pkg 'Tableau Desktop.pkg'
+
+  uninstall pkgutil: [
+                       'com.amazon.redshiftodbc',
+                       'simba.sparkodbc',
+                       'com.simba.sqlserverodbc',
+                       'com.tableausoftware.Desktop.app',
+                       'com.tableausoftware.DesktopShortcut',
+                       'com.tableausoftware.FLEXNet.11.14.0',
+                       'com.tableausoftware.mysql',
+                       'com.tableausoftware.oracle',
+                       'com.tableausoftware.postgresql',
+                     ]
 end

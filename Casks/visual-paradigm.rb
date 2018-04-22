@@ -1,17 +1,12 @@
 cask 'visual-paradigm' do
-  version '13.2,20161201'
-  sha256 '4581f78ffb9bd73f16aa2796dfffa89e4bab64cbb127b8c8d35035829485fbd8'
+  version '15.0,20180401'
+  sha256 '3a43349d40c3444209a2cc795fec0916a3a63e90150698a35c7deaa9a10e989f'
 
-  url "https://eu6.visual-paradigm.com/visual-paradigm/vp#{version.before_comma}/#{version.after_comma}/Visual_Paradigm_#{version.dots_to_underscores.gsub(',', '_')}_OSX_WithJRE.dmg"
+  url "https://usa6.visual-paradigm.com/visual-paradigm/vp#{version.before_comma}/#{version.after_comma}/Visual_Paradigm_#{version.before_comma.dots_to_underscores}_#{version.after_comma}_OSX_WithJRE.dmg"
+  appcast 'https://www.visual-paradigm.com/downloads/vp/checksum.html',
+          checkpoint: '79ebc854be3fa7a2fe8436d40462f64c4aea3b380f1a52594706d69eadce4909'
   name 'Visual Paradigm'
   homepage 'https://www.visual-paradigm.com/'
 
-  installer script: "Visual Paradigm #{version.before_comma} Installer.app/Contents/MacOS/JavaApplicationStub",
-            args:   ['-q'],
-            sudo:   false
-
-  uninstall script: {
-                      executable: "/Applications/Visual Paradigm #{version.before_comma}/uninstaller/uninstall.app/Contents/MacOS/JavaApplicationStub",
-                      args:       ['-q'],
-                    }
+  app 'Visual Paradigm.app'
 end

@@ -1,17 +1,13 @@
 cask 'hockey' do
-  version '2.0.17,498'
-  sha256 '6968850698833f425c7ce12cd9fea6572c6ff7a0ef2bcaab10235412e7058f97'
+  version '2.0.21,507'
+  sha256 '3ba93e54752891bc808a162c6426f006db07ab795123ad563bcfb403a99a935b'
 
   url "https://rink.hockeyapp.net/api/2/apps/67503a7926431872c4b6c1549f5bd6b1/app_versions/#{version.after_comma}?format=zip"
   appcast 'https://rink.hockeyapp.net/api/2/apps/67503a7926431872c4b6c1549f5bd6b1',
-          checkpoint: '80877307fae78dab79b06256af60f0d6e7c254e524fb98b50c6cc36ed9f3429f'
+          checkpoint: 'fc6e44d563a04341b074b8d8fc438058851de68f24ce7d021028554e0dbd7575'
   name 'HockeyApp'
   homepage 'https://hockeyapp.net/releases/mac/'
 
   app 'HockeyApp.app'
   binary "#{appdir}/HockeyApp.app/Contents/Resources/puck"
-
-  postflight do
-    suppress_move_to_applications
-  end
 end

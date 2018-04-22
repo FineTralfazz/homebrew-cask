@@ -1,20 +1,17 @@
 cask 'chefdk' do
-  if MacOS.version == :mountain_lion
-    version '0.11.2-1'
-    sha256 '56899eab322cacac7f445a24d3159af34fccb5910642f4535eff4ee47321fe56'
-  elsif MacOS.version >= :mavericks
-    version '1.1.16-1'
-    sha256 '2c20e646b90e13e1dec5db22def0a752311eafcc7f441fa5f366002a7c2b65ae'
-  end
+  version '2.5.3'
+  sha256 '54a909fd694e05eceda69ed0246cbdd644a6e7448a536f8b19781be81e8c4327'
 
-  url "https://packages.chef.io/stable/mac_os_x/#{MacOS.version}/chefdk-#{version}.dmg"
+  url "https://packages.chef.io/files/stable/chefdk/#{version}/mac_os_x/10.12/chefdk-#{version}-1.dmg"
   appcast "https://www.chef.io/chef/metadata-chefdk?p=mac_os_x&pv=#{MacOS.version}&m=x86_64&v=latest&prerelease=false",
-          checkpoint: '9b9421aef8f9beaf80d6f24c1ecb26113016673b160b711cc2a98100ce25c105'
+          checkpoint: '3c672589db2f1326c4d7e3432f4cc48b7ad586b688e210fc7cf2a6b46ec3c16d'
   name 'Chef Development Kit'
   name 'ChefDK'
-  homepage 'https://downloads.chef.io/chefdk/'
+  homepage 'https://downloads.chef.io/chefdk'
 
-  pkg "chefdk-#{version}.pkg"
+  depends_on macos: '>= :yosemite'
+
+  pkg "chefdk-#{version}-1.pkg"
 
   # When updating this cask, please verify the list of paths to delete (and
   # add to it if necessary):
@@ -29,11 +26,12 @@ cask 'chefdk' do
                        '/usr/local/bin/chef-client',
                        '/usr/local/bin/chef-shell',
                        '/usr/local/bin/chef-solo',
-                       '/usr/local/bin/chef-zero',
+                       '/usr/local/bin/chef-vault',
                        '/usr/local/bin/cookstyle',
+                       '/usr/local/bin/dco',
                        '/usr/local/bin/delivery',
-                       '/usr/local/bin/fauxhai',
                        '/usr/local/bin/foodcritic',
+                       '/usr/local/bin/inspec',
                        '/usr/local/bin/kitchen',
                        '/usr/local/bin/knife',
                        '/usr/local/bin/ohai',
@@ -43,5 +41,5 @@ cask 'chefdk' do
                        '/usr/local/bin/rubocop',
                      ]
 
-  zap delete: '~/.chefdk/'
+  zap trash: '~/.chefdk/'
 end

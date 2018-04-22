@@ -1,6 +1,6 @@
 cask 'unseen' do
-  version '0.4.2'
-  sha256 '902c2229e4c64e459308aaaf03c1beb00f5256d301883c023e53a5ed011ecf32'
+  version '0.4.6'
+  sha256 'ec9a750d3d1a6c2ffe9a772c7694be12e10d328f68a13b5a8fbf21946b127147'
 
   url "https://download.unseen.is/unseenapp-is-v#{version}/unseenapp-beta-v#{version}-osx.zip"
   name 'Unseen'
@@ -8,10 +8,10 @@ cask 'unseen' do
 
   app "Unseen_v#{version}.app"
 
-  zap delete: [
-                '~/Library/Application Support/Unseen',
-                '~/Library/Preferences/com.unseen.client.plist',
-                '~/Library/Saved Application State/com.unseen.client.savedState',
-                '~/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.unseen.client.sfl ',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.unseen.client.sfl* ',
+               '~/Library/Application Support/Unseen',
+               '~/Library/Preferences/com.unseen.client.plist',
+               '~/Library/Saved Application State/com.unseen.client.savedState',
+             ]
 end

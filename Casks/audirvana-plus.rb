@@ -1,12 +1,20 @@
 cask 'audirvana-plus' do
-  version '2.6.4'
-  sha256 '693d4e9af53a0eaa8a96a474c19f237ffa0387e8d0dfa6353f00140226fb72be'
+  version '3.2.6'
+  sha256 'cc56351ed9f9ba64d59bf5e5d16c7a562f60f55a47e8f102ae74622960e05b0c'
 
   url "https://audirvana.com/delivery/AudirvanaPlus_#{version}.dmg"
   appcast "https://audirvana.com/delivery/audirvanaplus#{version.major}_appcast.xml",
-          checkpoint: 'b20274c82807b04f4613c3caf3778059f8b355defdab3b1ef4a8dbe54083cabf'
+          checkpoint: '787610aa5427e8454511a636e5f2602a4f71eedf649107ed18d1fe14d1605ab7'
   name "Audirvana Plus #{version.major}"
   homepage 'https://audirvana.com/'
 
   app 'Audirvana Plus.app'
+
+  zap trash: [
+               '/Library/LaunchDaemons/com.audirvana.Audirvana-Plus.plist',
+               '/Library/PrivilegedHelperTools/com.audirvana.Audirvana-Plus',
+               '~/Library/Caches/com.audirvana.Audirvana-Plus',
+               '~/Library/Cookies/com.audirvana.Audirvana-Plus.binarycookies',
+               '~/Library/Preferences/com.audirvana.Audirvana-Plus.plist',
+             ]
 end

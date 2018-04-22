@@ -7,4 +7,9 @@ cask 'textual' do
   homepage 'https://www.codeux.com/textual/'
 
   app 'Textual.app'
+
+  zap trash: [
+               '~/Library/Preferences/com.codeux.apps.textual.plist',
+               '~/Library/Application Support/Textual',
+             ]
 end

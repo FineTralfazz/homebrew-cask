@@ -1,6 +1,6 @@
 cask 'editready' do
-  version '1.4.6'
-  sha256 '1e4a7fd9590ba61046b99ca636252f904148e5249daab99b786126e9c2003f6b'
+  version '2.1.1'
+  sha256 '95ae7db03343920df21dc4617b926ab341ff9a487e02f70dea2e088b8233322c'
 
   url "https://www.divergentmedia.com/filedownload/editready%20#{version}.dmg"
   name 'divergent media EditReady'
@@ -8,8 +8,8 @@ cask 'editready' do
 
   app 'EditReady.app'
 
-  zap delete: [
-                '~/Library/Application Support/EditReady',
-                '~/Library/Preferences/com.divergentmedia.EditReady.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/EditReady',
+               '~/Library/Preferences/com.divergentmedia.EditReady.plist',
+             ]
 end

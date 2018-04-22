@@ -1,16 +1,16 @@
 cask 'reactotron' do
-  version '1.6.0'
-  sha256 '0d25f248a12c16341def4c83ac3ce1fa67dd0ce93444bca41d7cb7920d7630e1'
+  version '1.15.0'
+  sha256 '56c166b1b09dc8863422656dc7a23f2cf22a0c85bb8bef5532fe2a95e7bdaf44'
 
-  url "https://github.com/reactotron/reactotron/releases/download/v#{version}/Reactotron.app.zip"
-  appcast 'https://github.com/reactotron/reactotron/releases.atom',
-          checkpoint: '1cdbbdfc4b8e0f3cebac8fc98ddc1579a9586d3fa1fefb29073221e4b3cc5e11'
+  url "https://github.com/infinitered/reactotron/releases/download/v#{version}/Reactotron.app.zip"
+  appcast 'https://github.com/infinitered/reactotron/releases.atom',
+          checkpoint: '9a1788a7e3ee20e68ccc146673425acaf64561bd2c374598c4b52b2263b7b817'
   name 'Reactotron'
-  homepage 'https://github.com/reactotron/reactotron'
+  homepage 'https://github.com/infinitered/reactotron'
 
   app 'Reactotron.app'
 
-  zap delete: [
-                '~/Library/Application Support/Reactotron',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Reactotron',
+             ]
 end

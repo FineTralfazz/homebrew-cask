@@ -5,14 +5,20 @@ cask 'itsycal' do
 
     # s3.amazonaws.com/itsycal was verified as official when first introduced to the cask
     url "https://s3.amazonaws.com/itsycal/Itsycal-#{version}.zip"
+  elsif MacOS.version <= :el_capitan
+    version '0.10.16'
+    sha256 'dbf1b104c7a3a2ca3ead9879145cb0557955c29d53f35a92b42f48e68122957c'
+
+    # s3.amazonaws.com/itsycal was verified as official when first introduced to the cask
+    url "https://s3.amazonaws.com/itsycal/Itsycal-#{version}.zip"
   else
-    version '0.11.0'
-    sha256 '60ff34640b0b18e61ffe84af20d048ca20213712cfcfedae944119c346222634'
+    version '0.11.9'
+    sha256 '6e0cde73c2903e7ee96359e29b1641dec555d53b23d2090098e7e322675ca920'
 
     # s3.amazonaws.com/itsycal was verified as official when first introduced to the cask
     url "https://s3.amazonaws.com/itsycal/Itsycal-#{version}.zip"
     appcast 'https://s3.amazonaws.com/itsycal/itsycal.xml',
-            checkpoint: '37721ee9e4205b27db362d645a0a96ba8946f5de8b080b3b8e483c6dd981fc1a'
+            checkpoint: '08a64a0490ef56d0d7d913a449d9a797952c638f2561a49f0177ec22f75e05af'
   end
 
   name 'Itsycal'

@@ -1,12 +1,12 @@
 cask 'graphql-ide' do
-  version '1.1.0'
-  sha256 '697b1618d416c18a17bb6176eda88a1187588b6f95bafb0f559bb6b9fcca8775'
+  version '1.1.1'
+  sha256 'e7aa74f9dfc4874138d9fa74af33eb701130f5abe8ff70735c38c506f732408c'
 
-  url "https://github.com/redound/graphql-ide/releases/download/v#{version}/GraphQL.IDE.app.zip"
-  appcast 'https://github.com/redound/graphql-ide/releases.atom',
-          checkpoint: '303b735e0bceec72e00116ef27afd394686f2c1aa0cd133a4ec658b28d900555'
+  url "https://github.com/andev-software/graphql-ide/releases/download/v#{version}/GraphQL.IDE.zip"
+  appcast 'https://github.com/andev-software/graphql-ide/releases.atom',
+          checkpoint: 'cbe93f7235810ac6bdfb29498bb265cddcb536d03a4410d271aa35abc92dcce2'
   name 'GraphQL IDE'
-  homepage 'https://github.com/redound/graphql-ide'
+  homepage 'https://github.com/andev-software/graphql-ide'
 
   app 'GraphQL IDE.app'
 end

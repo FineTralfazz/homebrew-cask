@@ -1,10 +1,10 @@
 cask 'arduino' do
-  version '1.8.1'
-  sha256 '78e72a43e6228d8e9e6d0998fbfc16b1718fbfc0c76baf0ab57e3a78eef71628'
+  version '1.8.5'
+  sha256 '49d0a255802167fc7644f4cc5b3d8b41c94859343c0c4d1f90816f18b11f3fd9'
 
   url "https://downloads.arduino.cc/arduino-#{version}-macosx.zip"
   appcast 'https://www.arduino.cc/en/Main/ReleaseNotes',
-          checkpoint: 'bd0f51fb604bbbcddfc893b0631c2f5ec85c1477dd245bef7c0b6db042946153'
+          checkpoint: '8d819ee505a981d873ea7e2858007cf6941bdec4b76e63eacbfae9dd16372da4'
   name 'Arduino'
   homepage 'https://www.arduino.cc/'
 
@@ -13,6 +13,5 @@ cask 'arduino' do
 
   caveats do
     depends_on_java
-    files_in_usr_local
   end
 end

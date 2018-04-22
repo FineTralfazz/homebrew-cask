@@ -1,10 +1,10 @@
 cask 'feeder' do
-  version '3.4'
-  sha256 '71256d755b70475aece4557fd8ff250a967ec6e4a643ee0b0e8123558c4a6ee2'
+  version '3.5.9'
+  sha256 '228020aa239e9fc9616df0446fc8471d1f3578ab45a3fabc29353546090177d0'
 
   url "https://reinventedsoftware.com/feeder/downloads/Feeder_#{version}.dmg"
   appcast "https://reinventedsoftware.com/feeder/downloads/Feeder#{version.major}.xml",
-          checkpoint: '5a0d77ac45bc1450278bf2fcb29ee034eed3dcab7319a3b4ae14e9617aa80bc7'
+          checkpoint: '5d62ec3c33af738c5cd404334b79bea3921d98e685182740693d9f2bb5e30b51'
   name 'Feeder'
   homepage 'https://reinventedsoftware.com/feeder/'
 

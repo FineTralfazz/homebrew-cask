@@ -1,34 +1,30 @@
 cask 'tunnelbear' do
-  version '3.0.9'
-  sha256 '05844e866ca2b03ece365a857d6ceb17a1756211477c25bab9910923bd93dd60'
+  version '3.5.1'
+  sha256 'f02afb1e5b55cb4a7887469d178873ee1ec1078fa2d728e51d467f626e6d55d4'
 
-  # tunnelbear.s3.amazonaws.com was verified as official when first introduced to the cask
-  url "https://tunnelbear.s3.amazonaws.com/downloads/mac/TunnelBear-#{version}.zip"
+  # s3.amazonaws.com/tunnelbear was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/tunnelbear/downloads/mac/TunnelBear-#{version}.zip"
   appcast 'https://s3.amazonaws.com/tunnelbear/downloads/mac/appcast.xml',
-          checkpoint: '1e46a3fd04dc093eeee51c6ebd8c77354191dbc003a4d73a1551675dbac16a4f'
+          checkpoint: 'b372dd409ff02b4f2f0e206cc1d2d439ec2eb4e0c3da42ce3d09cb19a391093d'
   name 'TunnelBear'
   homepage 'https://www.tunnelbear.com/'
 
   app 'TunnelBear.app'
 
-  postflight do
-    suppress_move_to_applications
-  end
-
   uninstall quit:      'com.tunnelbear.mac.TunnelBear',
             launchctl: 'com.tunnelbear.mac.tbeard'
 
-  zap delete: [
-                '~/Library/Preferences/com.tunnelbear.mac.TunnelBear.plist',
-                '~/Library/Caches/com.tunnelbear.mac.TunnelBear',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.tunnelbear.mac.tunnelbear.sfl',
-                '~/Library/Application Support/com.tunnelbear.mac.TunnelBear',
-                '~/Library/Application Support/TunnelBear',
-                '~/Library/Caches/com.crashlytics.data/com.tunnelbear.mac.TunnelBear',
-                '~/Library/Caches/com.plausiblelabs.crashreporter.data/com.tunnelbear.mac.TunnelBear',
-                '~/Library/Caches/io.fabric.sdk.mac.data/com.tunnelbear.mac.TunnelBear',
-                '~/Library/Cookies/com.tunnelbear.mac.TunnelBear.binarycookies',
-                '~/Library/LaunchAgents/com.tunnelbear.mac.tbeara.plist',
-                '~/Library/Logs/TunnelBear',
-              ]
+  zap trash: [
+               '~/Library/Preferences/com.tunnelbear.mac.TunnelBear.plist',
+               '~/Library/Caches/com.tunnelbear.mac.TunnelBear',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.tunnelbear.mac.tunnelbear.sfl*',
+               '~/Library/Application Support/com.tunnelbear.mac.TunnelBear',
+               '~/Library/Application Support/TunnelBear',
+               '~/Library/Caches/com.crashlytics.data/com.tunnelbear.mac.TunnelBear',
+               '~/Library/Caches/com.plausiblelabs.crashreporter.data/com.tunnelbear.mac.TunnelBear',
+               '~/Library/Caches/io.fabric.sdk.mac.data/com.tunnelbear.mac.TunnelBear',
+               '~/Library/Cookies/com.tunnelbear.mac.TunnelBear.binarycookies',
+               '~/Library/LaunchAgents/com.tunnelbear.mac.tbeara.plist',
+               '~/Library/Logs/TunnelBear',
+             ]
 end

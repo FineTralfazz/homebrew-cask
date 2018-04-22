@@ -1,14 +1,18 @@
 cask 'processing' do
-  version '3.2.3'
-  sha256 '55874bba8eb6404a19b2c32697438421f93c20715be92e4637c1a26cabd56da0'
+  version '3.3.7'
+  sha256 '4f076f6957b3c5e7df40d29864fa9fe6fdb944e00863bd3f534fe0dd234f4992'
 
   url "http://download.processing.org/processing-#{version}-macosx.zip"
   appcast 'https://github.com/processing/processing/releases.atom',
-          checkpoint: 'b2000c13f2e7503048eb1ed3faedd0be414de16362217bee43e850402dd16483'
+          checkpoint: '2da872c8774ac8a0519516a83488dcf0b524e7af91b857ea9ac96957978c0658'
   name 'Processing'
   homepage 'https://processing.org/'
 
   app 'Processing.app'
 
-  zap delete: '~/Library/Processing/preferences.txt'
+  zap trash: [
+               '~/Library/Processing',
+               '~/Preferences/org.processing.app.plist',
+               '~/Preferences/processing.app.tools.plist',
+             ]
 end

@@ -6,10 +6,12 @@ cask 'sqlitestudio' do
   appcast 'http://sqlitestudio.pl/rss.rvt',
           checkpoint: '20c2c66590f5f58f06c1da7197e7b418856c1a56c1abc3ebd5f30410458e51c2'
   name 'SQLiteStudio'
-  homepage 'http://sqlitestudio.pl/'
+  homepage 'https://sqlitestudio.pl/'
 
   app 'SQLiteStudio.app'
 
-  zap delete: '~/Library/Saved Application State/com.yourcompany.SQLiteStudio.savedState',
-      trash:  '~/.config/sqlitestudio'
+  zap trash: [
+               '~/.config/sqlitestudio',
+               '~/Library/Saved Application State/com.yourcompany.SQLiteStudio.savedState',
+             ]
 end

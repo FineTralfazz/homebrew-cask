@@ -1,6 +1,6 @@
 cask 'postbox' do
-  version '5.0.9,1_53cd26fb086aa4cbab01f5340f7dedad52bfc2ba'
-  sha256 'c0f2135dadd9ac2278d4bdd212040cefbc65088a191d8ac64c706b548715e187'
+  version '5.0.24,1_c5810ea796337b300b4f30dac967fb7623b5a16c'
+  sha256 '124704184e020d41cdbc7e587aea9a04cf8ccae6216ee330d895d8a827fc2665'
 
   # amazonaws.com/download.getpostbox.com was verified as official when first introduced to the cask
   url "https://s3.amazonaws.com/download.getpostbox.com/installers/#{version.before_comma}/#{version.after_comma}/postbox-#{version.before_comma}-mac64.dmg"
@@ -11,13 +11,13 @@ cask 'postbox' do
 
   app 'Postbox.app'
 
-  zap delete: [
-                '~/Library/Application Support/Postbox',
-                '~/Library/Caches/com.crashlytics.data/com.postbox-inc.postbox',
-                '~/Library/Caches/com.postbox-inc.postbox',
-                '~/Library/Caches/Postbox',
-                '~/Library/PDF Services/Mail PDF with Postbox',
-                '~/Library/Preferences/com.postbox-inc.postbox.plist',
-                '~/Library/Saved Application State/com.postbox-inc.postbox.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Postbox',
+               '~/Library/Caches/com.crashlytics.data/com.postbox-inc.postbox',
+               '~/Library/Caches/com.postbox-inc.postbox',
+               '~/Library/Caches/Postbox',
+               '~/Library/PDF Services/Mail PDF with Postbox',
+               '~/Library/Preferences/com.postbox-inc.postbox.plist',
+               '~/Library/Saved Application State/com.postbox-inc.postbox.savedState',
+             ]
 end

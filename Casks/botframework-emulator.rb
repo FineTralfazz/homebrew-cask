@@ -1,10 +1,10 @@
 cask 'botframework-emulator' do
-  version '3.5.23'
-  sha256 '753a52046a7e581deb23a53a12572dd4b158ed79d704af2982326ee625724e98'
+  version '3.5.35'
+  sha256 '860bfbcacfc6f5998b33b71ca6114b5c560c6404b7234343cec216b8298a459c'
 
   url "https://github.com/Microsoft/BotFramework-Emulator/releases/download/v#{version}/botframework-emulator-#{version}-mac.zip"
   appcast 'https://github.com/Microsoft/BotFramework-Emulator/releases.atom',
-          checkpoint: '01b5ed10ba1fb2333bf424505438cdcab011aa1e54f7de5a9d2a79d4481c1e59'
+          checkpoint: 'd7feb36c4d036ba29d339d2a2940b80c3d01b414d71185f97d7eebee09a4cfbc'
   name 'Microsoft Bot Framework Emulator'
   homepage 'https://github.com/Microsoft/BotFramework-Emulator'
 
@@ -14,12 +14,12 @@ cask 'botframework-emulator' do
 
   uninstall quit: 'com.electron.botframework-emulator'
 
-  zap delete: [
-                '~/Library/Application Support/botframework-emulator',
-                '~/Library/Caches/com.electron.botframework-emulator',
-                '~/Library/Caches/com.electron.botframework-emulator.ShipIt',
-                '~/Library/Preferences/com.electron.botframework-emulator.helper.plist',
-                '~/Library/Preferences/com.electron.botframework-emulator.plist',
-                '~/Library/Saved Application State/com.electron.botframework-emulator.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/botframework-emulator',
+               '~/Library/Caches/com.electron.botframework-emulator',
+               '~/Library/Caches/com.electron.botframework-emulator.ShipIt',
+               '~/Library/Preferences/com.electron.botframework-emulator.helper.plist',
+               '~/Library/Preferences/com.electron.botframework-emulator.plist',
+               '~/Library/Saved Application State/com.electron.botframework-emulator.savedState',
+             ]
 end

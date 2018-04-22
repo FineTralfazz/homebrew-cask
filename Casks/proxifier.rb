@@ -1,19 +1,22 @@
 cask 'proxifier' do
-  version '2.17'
-  sha256 'e10f6869b82b4646a0c8c1d535c97a7b8e90c979503c7e45d39205a4802698d5'
+  version '2.21'
+  sha256 '139887d2f4468af222af2b8a1b806169918f359113547a918078792b47471540'
 
-  url 'https://www.proxifier.com/distr/ProxifierMac.zip'
-  appcast 'https://www.proxifier.com/distr/last_versions/ProxifierMac.txt',
-          checkpoint: '5c316b2043de3d51392e3b60fc0894167c9b2c8abb5d1fe91ccf9d9c0a2056c9'
+  url 'https://www.proxifier.com/distr/ProxifierMac.dmg'
+  appcast 'https://www.proxifier.com/changelog/mac.html',
+          checkpoint: 'af05a525c7e3128fc3c6c82f0f9ba94e2a7cb34a5f14a5592e57c3ca986ba263'
   name 'Proxifier'
   homepage 'https://www.proxifier.com/mac/'
 
+  auto_updates true
+
   app 'Proxifier.app'
 
-  zap delete: [
-                '~/Library/Application Support/Proxifier',
-                '~/Library/Caches/com.initex.proxifier.macosx',
-                '~/Library/Preferences/com.initex.proxifier.macosx.plist',
-                '~/Library/Saved Application State/com.initex.proxifier.macosx.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Proxifier',
+               '~/Library/Caches/com.initex.proxifier.macosx',
+               '~/Library/Logs/Proxifier',
+               '~/Library/Preferences/com.initex.proxifier.macosx.plist',
+               '~/Library/Saved Application State/com.initex.proxifier.macosx.savedState',
+             ]
 end

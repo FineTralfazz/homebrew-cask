@@ -1,15 +1,15 @@
 cask 'visit' do
-  version '2.12.0'
-  sha256 '060ada90328827aed9d5a175aade5e5e243ad99881749c9a360d980bd46d870d'
+  version '2.13.0'
+  sha256 'e04668ee5bdfcb352e238eca579543ec548c995d4a9e1ce0d4b5be2877bfb045'
 
   # portal.nersc.gov/project/visit was verified as official when first introduced to the cask
-  url "https://portal.nersc.gov/project/visit/releases/#{version}/VisIt-#{version}.dmg"
+  url "https://portal.nersc.gov/project/visit/releases/#{version}/VisIt-#{version}-10.11.dmg"
   appcast 'https://wci.llnl.gov/simulation/computer-codes/visit/executables',
-          checkpoint: '732a92915a20a1edc31798b8b5a775761716a8665f28684b83ff517dedb9ad41'
+          checkpoint: 'af9ad999de6149081917bc2f37a2ab0de3527b442d5e8cee8372e20735a02f18'
   name 'VisIt'
   homepage 'https://wci.llnl.gov/simulation/computer-codes/visit'
 
-  depends_on macos: '>= :mountain_lion'
+  depends_on macos: '>= :el_capitan'
 
   app 'VisIt.app'
 end

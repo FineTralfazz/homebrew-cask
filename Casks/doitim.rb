@@ -4,9 +4,9 @@ cask 'doitim' do
 
   url "http://version.doit.im/dl/doit.im.#{version}.zip"
   appcast 'http://version.doit.im/mac/update.xml',
-          checkpoint: 'd8c81316e984d4a3e9071020c83dbbfcf8262b85a76d745966f2c0099102dc7e'
+          checkpoint: '12e5c755ba8e9ea0acd8b1cc8c045f1195287c2bbf2671cbb8d60b6155d7c6eb'
   name 'Doit.im'
-  homepage 'http://doit.im/'
+  homepage 'https://doit.im/'
 
   app 'Doit.im.app'
 end

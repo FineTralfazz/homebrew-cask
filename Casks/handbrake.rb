@@ -1,10 +1,10 @@
 cask 'handbrake' do
-  version '1.0.1'
-  sha256 '27f936ef028c9d20ee5da2b23c7352968c98226274ca43f3bc1571cf71820673'
+  version '1.1.0'
+  sha256 'd2457954cab59a7bbc58f0c12a2b03e262f6d2eb5e7b43960ab04e87531b1e33'
 
   url "https://download.handbrake.fr/handbrake/releases/#{version}/HandBrake-#{version}.dmg"
   appcast 'https://github.com/HandBrake/HandBrake/releases.atom',
-          checkpoint: '2814707b0478aa73d49711427f47d237fb5e36d10a5a919044e6ce72a81b82c8'
+          checkpoint: '47b83a82c14f5afa84e62f57916b220c10fe78f06b7cba0e949b5e37fe70fd31'
   name 'HandBrake'
   homepage 'https://handbrake.fr/'
 
@@ -13,11 +13,11 @@ cask 'handbrake' do
 
   app 'HandBrake.app'
 
-  zap delete: [
-                '~/Library/Application Support/HandBrake',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/fr.handbrake.handbrake.sfl',
-                '~/Library/Caches/fr.handbrake.HandBrake',
-                '~/Library/Preferences/fr.handbrake.HandBrake.plist',
-                '~/Library/Saved Application State/fr.handbrake.HandBrake.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/HandBrake',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/fr.handbrake.handbrake.sfl*',
+               '~/Library/Caches/fr.handbrake.HandBrake',
+               '~/Library/Preferences/fr.handbrake.HandBrake.plist',
+               '~/Library/Saved Application State/fr.handbrake.HandBrake.savedState',
+             ]
 end

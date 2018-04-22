@@ -1,12 +1,12 @@
 cask 'dext' do
-  version '0.7.1'
-  sha256 'f80441fe7daaa854104297b59a8fbef29a52c0886d3497896ebef8f82aff9a7d'
+  version '0.9.0'
+  sha256 '2bc13126bcde4df365228be2ccb04ec70ae3f77bef0971b22badcb7e3cb594e8'
 
-  url "https://github.com/vutran/dext/releases/download/v#{version}/Dext-darwin-x64.zip"
-  appcast 'https://github.com/vutran/dext/releases.atom',
-          checkpoint: '8759a1def2fbe2580dda40dd7a87eade01b96001d83e86476c9fa13fccfacd3c'
+  url "https://github.com/DextApp/dext/releases/download/v#{version}/Dext-darwin-x64.zip"
+  appcast 'https://github.com/DextApp/dext/releases.atom',
+          checkpoint: '2a6de7371ace8b9e0804482ccbe8ca0fbb00ef6fccb82b5d3f0d6e925b86618b'
   name 'Dext'
-  homepage 'https://github.com/vutran/dext'
+  homepage 'https://github.com/DextApp/dext'
 
   app 'Dext-darwin-x64/Dext.app'
 end

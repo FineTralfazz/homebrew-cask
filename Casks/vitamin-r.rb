@@ -1,10 +1,5 @@
 cask 'vitamin-r' do
-  if MacOS.version <= :leopard
-    version '1.48'
-    sha256 '9a06bbf02da9ff61d10fc5cc14ff888c6125e8ccef92dc42e3878284c46afe45'
-    url 'http://www.publicspace.net/download/VitaminLeopard.dmg'
-    app 'Vitamin-R.app'
-  elsif MacOS.version <= :snow_leopard
+  if MacOS.version <= :snow_leopard
     version '1.85'
     sha256 'cf5676f710a9be0f290aa20c2b1f9feaf87f162b580987f7c08477a2f13b2705'
     url "http://www.publicspace.net/download/Vitamin_#{version.dots_to_underscores}.dmg"
@@ -20,11 +15,11 @@ cask 'vitamin-r' do
     url "http://www.publicspace.net/download/Vitamin_#{version.dots_to_underscores}.dmg"
     app "Vitamin-R #{version.major}.app"
   else
-    version '2.43'
-    sha256 'a08960027b32249e44d37ec30f1f6f78432f5f4eb116c24650b1a008b6fb7918'
+    version '2.53'
+    sha256 '8427354a85d787feea557a63136690f209113dcba01915e84dc2fdde568fb88e'
     url "http://www.publicspace.net/download/signedVitamin#{version.major}.zip"
     appcast "http://www.publicspace.net/app/vitamin#{version.major}.xml",
-            checkpoint: 'ddba0d4086693bc527ac9623936517dc265c6d44aabbf04145d40b9758250d7e'
+            checkpoint: '32525b6cb04e7922bb2e1a47f61cc868e1e67a9b001fbbde357873cd087db92c'
     app "Vitamin-R #{version.major}.app"
   end
 

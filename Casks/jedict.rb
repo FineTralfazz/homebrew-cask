@@ -1,8 +1,8 @@
 cask 'jedict' do
-  version '5.0'
-  sha256 'b18454ea99a410c38a20af354476572de21d5a0fe91795dfc399b605534b1ae0'
+  version '5.0.4'
+  sha256 '37b1dc2c70048a3f5d0b1f92fa8c535af270f7471dac58987ff4a5e73a480a74'
 
-  url "http://jedict.com/Downloads/JEDict.#{version}.zip"
+  url "http://jedict.com/Downloads/JEDict#{version.no_dots}.dmg"
   name 'Jedict'
   homepage 'http://www.jedict.com/'
 

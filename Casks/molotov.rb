@@ -1,8 +1,8 @@
 cask 'molotov' do
-  version '1.1.2'
-  sha256 '634e811835e36261d4339e251d075914180a021497eab99aed0d64df08fa6662'
+  version '2.1.2'
+  sha256 '6cc00e22616c60e298cd3dd991378770da1e8528a199bf9a249d44176409dd45'
 
-  url "http://desktop-auto-upgrade.molotov.tv/mac/Molotov-v#{version}.dmg"
+  url "https://desktop-auto-upgrade.molotov.tv/mac/Molotov-v#{version}.dmg"
   name 'Molotov'
   homepage 'https://www.molotov.tv/'
 

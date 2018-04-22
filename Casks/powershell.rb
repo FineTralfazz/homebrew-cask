@@ -1,36 +1,37 @@
 cask 'powershell' do
-  version '6.0.0-alpha.14'
-  sha256 '8fd7abc4ec1a2e4a28543b90a6ee60cd437d4b366b544c39b341a05276eb8ccf'
+  version '6.0.2'
+  sha256 'c757808305076570cc0945feab8433a3488500a3558dea4dd4bb8e5a770dea99'
 
-  # github.com/PowerShell/PowerShell was verified as official when first introduced to the cask
-  url "https://github.com/PowerShell/PowerShell/releases/download/v#{version}/powershell-#{version}.pkg"
+  url "https://github.com/PowerShell/PowerShell/releases/download/v#{version}/powershell-#{version}-osx.10.12-x64.pkg"
   appcast 'https://github.com/PowerShell/PowerShell/releases.atom',
-          checkpoint: 'ef21df624051f199d998ba7658b38e23c6437944b129fe94680aac36b52cad92'
+          checkpoint: 'f9f11569508e46985e8ea51671f7d0966103c181f47372b02ebe29922dbdd508'
   name 'PowerShell'
-  homepage 'https://msdn.microsoft.com/powershell'
+  homepage 'https://github.com/PowerShell/PowerShell'
 
   depends_on formula: 'openssl'
+  depends_on macos: '>= :sierra'
 
-  pkg "powershell-#{version}.pkg"
+  pkg "powershell-#{version}-osx.10.12-x64.pkg"
 
-  uninstall pkgutil: 'powershell'
+  uninstall pkgutil: 'com.microsoft.powershell'
 
-  zap delete: [
-                '~/.cache/powershell',
-                '~/.config/PowerShell',
-                '~/.local/share/powershell',
-              ],
-      rmdir:  [
-                '~/.cache',
-                '~/.config',
-                '~/.local/share',
-                '~/.local',
-              ]
+  zap trash: [
+               '~/.cache/powershell',
+               '~/.config/PowerShell',
+               '~/.local/share/powershell',
+             ],
+      rmdir: [
+               '~/.cache',
+               '~/.config',
+               '~/.local/share',
+               '~/.local',
+             ]
 
-  caveats <<-EOS.undent
-    A OpenSSL-backed libcurl is required for custom handling of certificates.
+  caveats <<~EOS
+    A OpenSSL-backed libcurl with GSSAPI is required for custom handling
+    of certificates and default credentials for web requests.
     This is rarely needed, but you can install it with
-      brew install curl --with-openssl
-    See https://github.com/PowerShell/PowerShell/issues/2211
+      brew install curl --with-openssl --with-gssapi
+    See https://github.com/PowerShell/PowerShell/issues/5638
   EOS
 end

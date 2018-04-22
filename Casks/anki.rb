@@ -1,15 +1,14 @@
 cask 'anki' do
-  if MacOS.version <= :snow_leopard
-    version '2.0.40-alternate'
-    sha256 'a0087c85bbc27148a5e00bf40d5caad2ceb5ce09deac1f4385d87f54f0a36565'
-  else
-    version '2.0.40'
-    sha256 '4089d1dfa5e94a161d9a2e8596f7622c9103046020b72590ab1d8be5f42687db'
-  end
+  version '2.0.50'
+  sha256 'c9731bb79d4d09039daa322a1adb5e215e9457d161225bd0acb1ff1f0cc9556f'
 
   url "https://apps.ankiweb.net/downloads/current/anki-#{version}.dmg"
+  appcast 'https://apps.ankiweb.net/docs/changes.html',
+          checkpoint: '14d58373b36e4c8e225967b158d1122000fa1b231ddd78fb479242e31ffe6e20'
   name 'Anki'
   homepage 'https://apps.ankiweb.net/'
+
+  depends_on macos: '>= :lion'
 
   app 'Anki.app'
 end

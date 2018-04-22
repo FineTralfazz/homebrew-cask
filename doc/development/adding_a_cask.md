@@ -22,27 +22,22 @@ cask 'shuttle' do
 
   app 'Shuttle.app'
 
-  zap delete: '~/.shuttle.json'
+  zap trash: '~/.shuttle.json'
 end
 ```
 
-And here is one for `airstream`. Note that it has an unversioned download (the download `url` does not contain the version number, unlike the example above). It also suppresses the checksum with `sha256 :no_check` (necessary since the checksum will change when a new distribution is made available). This combination of `version :latest` and `sha256 :no_check` is currently the preferred mechanism when a versioned download URL is not available.
+And here is one for `advancedcolors`. Note that it has an unversioned download (the download `url` does not contain the version number, unlike the example above). It also suppresses the checksum with `sha256 :no_check` (necessary since the checksum will change when a new distribution is made available). This combination of `version :latest` and `sha256 :no_check` is currently the preferred mechanism when a versioned download URL is not available.
 
 ```ruby
-cask 'airstream' do
+cask 'advancedcolors' do
   version :latest
   sha256 :no_check
 
-  # amazonaws.com/airstream-clients was verified as official when first introduced to the cask
-  url 'https://s3-us-west-2.amazonaws.com/airstream-clients/mac/airstream-mac.dmg'
-  name 'AirStream'
-  homepage 'http://airstream.io/download/'
+  url 'http://advancedcolors.com/AdvancedColors.zip'
+  name 'Advanced Colors'
+  homepage 'http://advancedcolors.com/'
 
-  app 'AirStream.app'
-
-  caveats do
-    depends_on_java('6')
-  end
+  app 'AdvancedColors.app'
 end
 ```
 
@@ -182,10 +177,9 @@ If your application and Homebrew-Cask do not work well together, feel free to [f
 We maintain separate Taps for different types of binaries. Our nomenclature is:
 
 + **Stable**: The latest version provided by the developer defined by them as such.
-+ **Beta, Development, Unstable**: Subsequent versions to **stable**, yet incomplete and under development, aiming to eventually become the new **stable**.
++ **Beta, Development, Unstable**: Subsequent versions to **stable**, yet incomplete and under development, aiming to eventually become the new **stable**. Also includes alternate versions specifically targeted at developers.
 + **Nightly**: Constantly up-to-date versions of the current development state.
 + **Legacy**: Any **stable** version that is not the most recent.
-+ **Alternative**: Alternative edition of an existing app, by the same vendor (developer editions, community editions, pro editions, …).
 + **Regional, Localized**: Any version that isn’t the US English one, when that exists.
 + **Trial**: Date-limited version that stops working entirely after it expires, requiring payment to lift the limitation.
 + **Freemium**: Gratis version that works indefinitely but with limitations that can be removed by paying.
@@ -193,18 +187,21 @@ We maintain separate Taps for different types of binaries. Our nomenclature is:
 + **Unofficial**: An *allegedly* unmodified compiled binary, by a third-party, of a binary that has no existing build by the owner of the source code.
 + **Vendorless**: A binary distributed without an official website, like a forum posting.
 + **Walled**: When the download URL is both behind a login/registration form and from a host that differs from the homepage.
++ **Font**: Data file containing a set of glyphs, characters, or symbols, that changes typed text.
++ **eID**: Software to install electronic identity card software of various countries.
++ **Driver**: Software to make a hardware peripheral recognisable and usable by the system. If the software is useless without the peripheral, it’s considered a driver.
 
 ### Stable Versions
 
-Stable versions live in the main repository at [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask). They should run on the latest release of macOS or the previous point release (which are Sierra and El Capitan as of late 2016).
+Stable versions live in the main repository at [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask). They should run on the latest release of macOS or the previous point release (High Sierra and Sierra as of late 2017).
 
 ### But There Is No Stable Version!
 
 When an App is only available as beta, development, or unstable versions, or in cases where such a version is the general standard, then said version can go into the main repo.
 
-### Beta, Unstable, Development, Nightly, Legacy, or Alternative Versions
+### Beta, Unstable, Development, Nightly, or Legacy
 
-When an App has a principal stable version, alternative versions should be submitted to [caskroom/homebrew-versions](https://github.com/caskroom/homebrew-versions).
+When an App has a main stable version, alternative versions should be submitted to [caskroom/homebrew-versions](https://github.com/caskroom/homebrew-versions).
 
 ### Regional and Localized
 
@@ -225,6 +222,16 @@ We do not accept these casks since they offer a higher-than-normal security risk
 ### Fonts
 
 Font Casks live in the [caskroom/homebrew-fonts](https://github.com/caskroom/homebrew-fonts) repository. See the font repo [CONTRIBUTING.md](../../../../../homebrew-fonts/blob/master/CONTRIBUTING.md)
+for details.
+
+### eIDs
+
+eID Casks live in the [caskroom/homebrew-eid](https://github.com/caskroom/homebrew-eid) repository. See the eid repo [CONTRIBUTING.md](../../../../../homebrew-eid/blob/master/CONTRIBUTING.md)
+for details.
+
+### Drivers
+
+Driver Casks live in the [caskroom/homebrew-drivers](https://github.com/caskroom/homebrew-drivers) repository. See the drivers repo [CONTRIBUTING.md](../../../../../homebrew-drivers/blob/master/CONTRIBUTING.md)
 for details.
 
 ## Submitting Your Changes
@@ -283,8 +290,7 @@ Examples of difficult, unclear commit summaries:
 Push your changes to your GitHub account:
 
 ```bash
-$ github_user='<my-github-username>'
-$ git push "$github_user" my-new-cask
+$ git push <my-github-username> my-new-cask
 ```
 
 If you are using [GitHub two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/) and set your remote repository as HTTPS you will need to set up a personal access token and use that instead of your password. Further information [here](https://help.github.com/articles/https-cloning-errors/#provide-access-token-if-2fa-enabled).
@@ -293,7 +299,7 @@ If you are using [GitHub two-factor authentication](https://help.github.com/arti
 
 Now go to the [`homebrew-cask` GitHub repository](https://github.com/caskroom/homebrew-cask). GitHub will often show your `my-new-cask` branch with a handy button to `Compare & pull request`. Otherwise, click the `New pull request` button and choose to `compare across forks`. The base fork should be `caskroom/homebrew-cask @ master`, and the head fork should be `my-github-username/homebrew-cask @ my-new-cask`. You can also add any further comments to your pull request at this stage.
 
-Congratulations! You are done now, and your Cask should be pulled in or otherwise noticed in a while. If a maintainer suggests some changes, just make them on the `my-new-cask` branch locally, [squash](#squashing), and [push](#pushing).
+Congratulations! You are done now, and your Cask should be pulled in or otherwise noticed in a while. If a maintainer suggests some changes, just make them on the `my-new-cask` branch locally and [push](#pushing).
 
 ## Cleaning up
 

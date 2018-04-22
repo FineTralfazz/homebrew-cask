@@ -1,13 +1,13 @@
 cask 'resolume-arena' do
-  version '5.1.2'
-  sha256 'ca035bf4649e87010e010f9f394b60579047ea925978114831fffb874126a95d'
+  version '6.0.4'
+  sha256 '246f6eb98184d7480450b708dfc48e9152ad9dc94fd0b659672e1c326b27fb99'
 
-  # d19j6z4lvv1vde.cloudfront.net was verified as official when first introduced to the cask
-  url "https://d19j6z4lvv1vde.cloudfront.net/Resolume_Arena_#{version.dots_to_underscores}_Installer.dmg"
+  url "https://resolume.com/download/Resolume_Arena_#{version.dots_to_underscores}_Installer.dmg"
   name 'Resolume Arena'
   homepage 'https://resolume.com/'
 
-  pkg "Resolume Arena #{version} Installer.pkg"
+  pkg 'Resolume Arena Installer.pkg'
 
-  uninstall pkgutil: 'com.resolume.pkg.ResolumeArena*'
+  uninstall pkgutil: "com.resolume.pkg.ResolumeArena#{version.major}",
+            delete:  "/Applications/Resolume Arena #{version.major}"
 end

@@ -1,10 +1,10 @@
 cask 'disk-drill' do
-  version '3.1.769'
-  sha256 '1195e022934979d36350d25cc3c917a6dd649a4c8ff2191b3e6778899073415f'
+  version '3.5.883'
+  sha256 '1eb24662f729f29c5b21210e24d7c6b55e182c5e2a53b6b2bed02e8573f52746'
 
   url "https://www.cleverfiles.com/releases/DiskDrill_#{version}.zip"
   appcast 'https://www.cleverfiles.com/releases/auto-update/dd2-newestr.xml',
-          checkpoint: 'ffdd694a03a3cab0230d7315e5520d8acfaf687eabbe9ec5e04e3e2f16596f72'
+          checkpoint: 'beaf6374680821cbeecc577846cf2e2e7816bacf8912cb9811567beab21434f0'
   name 'Disk Drill'
   homepage 'https://www.cleverfiles.com/'
 
@@ -12,9 +12,9 @@ cask 'disk-drill' do
 
   uninstall delete: '/Library/Application Support/CleverFiles'
 
-  zap delete: [
-                '~/Library/Application Support/DiskDrill',
-                '~/Library/Caches/com.cleverfiles.Disk_Drill',
-                '~/Library/Logs/DiskDrill.log',
-              ]
+  zap trash: [
+               '~/Library/Application Support/DiskDrill',
+               '~/Library/Caches/com.cleverfiles.Disk_Drill',
+               '~/Library/Logs/DiskDrill.log',
+             ]
 end
